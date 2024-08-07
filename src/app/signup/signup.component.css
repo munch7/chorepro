@@ -1,3 +1,30 @@
+/* General Styles for Container */
+.container {
+    max-width: 800px; /* Maximum width for larger screens */
+    margin: 0 auto; /* Center align container */
+    padding: 20px; /* Padding inside container */
+}
+
+/* General Styles for Form */
+form {
+    background-color: #f9f9f9; /* Light background color */
+    border: 1px solid #ddd; /* Border around form */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside form */
+}
+
+/* Styles for Form Groups */
+form > div {
+    margin-bottom: 15px; /* Space between form elements */
+}
+
+/* Styles for Labels */
+label {
+    display: block; /* Block display for labels */
+    font-weight: bold; /* Bold font for labels */
+    margin-bottom: 5px; /* Space between label and input */
+}
+
 /* General Styles for Inputs */
 input, select, textarea {
     width: 80%; /* Reduce the width to 80% */
@@ -9,6 +36,19 @@ input, select, textarea {
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     font-size: 1rem; /* Base font size */
     display: block; /* Ensure inputs are displayed as block elements */
+}
+
+/* Styles for Textarea */
+textarea {
+    resize: vertical; /* Allow vertical resizing only */
+    min-height: 100px; /* Minimum height for textarea */
+}
+
+/* Styles for Validation Messages */
+.response-message, .form-group div {
+    color: #d9534f; /* Error message color */
+    font-size: 0.875rem; /* Smaller font size for messages */
+    margin-top: 5px; /* Space above messages */
 }
 
 /* Adjustments for Different Screen Sizes */
@@ -38,8 +78,15 @@ button {
     color: white;
     cursor: pointer;
     margin-top: 10px;
+    display: block; /* Ensure button is displayed as block */
+    width: auto; /* Adjust width to fit content */
 }
 
 button:hover {
     background-color: #ff6f4f;
+}
+
+/* Optional: Additional Styling for Required Fields */
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    border-color: #d9534f; /* Highlight border for invalid inputs */
 }
