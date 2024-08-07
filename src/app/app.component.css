@@ -1,0 +1,67 @@
+/* Container Style */
+.container {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center; /* Center-align text in container */
+}
+
+/* Navigation Links */
+nav a {
+    margin: 0 20px; /* Increase horizontal margin */
+    font-size: large;
+    cursor: pointer; /* Indicate that the link is clickable */
+    color: white;
+    text-decoration: none; /* Remove underline from links */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+nav a:hover {
+    color: #000000; /* Change color on hover */
+}
+
+/* Header Section */
+.head {
+    background-color: #ff7f50;
+    color: white;
+    text-align: center;
+    padding: 20px 0; /* Increase padding for more space */
+    margin: 0 0 0px 0; /* Increase margin below header */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.head h1 {
+    margin: 0; /* Remove default margin */
+}
+
+
+/* Footer Section */
+footer {
+    padding: 30px; /* Increase padding in footer */
+    background-color: #f1f1f1;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center-align text in footer */
+    margin-top: 40px; /* Add space above footer */
+}
+
+/* Button Style */
+button {
+    padding: 10px 20px; /* Adjust padding for better size */
+    font-size: 1.1rem; /* Font size for button text */
+    color: white; /* Button text color */
+    background-color: #ff7f50; /* Button background color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Indicate that the button is clickable */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+button:hover {
+    background-color: #e06f4e; /* Slightly darker background color on hover */
+}
+li{
+    list-style-type: none;
+}
+li a{
+    color: #e06f4e;
+}

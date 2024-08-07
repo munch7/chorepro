@@ -1,0 +1,45 @@
+/* General Styles for Inputs */
+input, select, textarea {
+    width: 80%; /* Reduce the width to 80% */
+    max-width: 600px; /* Maximum width for larger screens */
+    padding: 10px; /* Padding inside inputs */
+    margin: 8px auto; /* Center align inputs with margin */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-size: 1rem; /* Base font size */
+    display: block; /* Ensure inputs are displayed as block elements */
+}
+
+/* Adjustments for Different Screen Sizes */
+@media (max-width: 768px) {
+    input, select, textarea {
+        font-size: 0.9rem; /* Smaller font size for tablets */
+        padding: 8px; /* Reduced padding */
+        width: 90%; /* Increase width for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    input, select, textarea {
+        font-size: 0.8rem; /* Even smaller font size for mobile devices */
+        padding: 6px; /* Further reduced padding */
+        width: 95%; /* Increase width for mobile devices */
+    }
+}
+
+/* Optional: Additional Styling for Buttons */
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff7f50;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #ff6f4f;
+}

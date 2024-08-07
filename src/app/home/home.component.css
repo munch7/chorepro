@@ -1,0 +1,61 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .about-us, .services, .why-choose-us {
+    margin-bottom: 40px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .about-us p, .why-choose-us p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .services {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .services ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .services li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .services li:last-child {
+    border-bottom: none;
+  }
+  
+  .services strong {
+    display: block;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  button {
+    background-color: #ff7f50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

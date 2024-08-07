@@ -1,0 +1,54 @@
+<div class="container">
+    <form [formGroup]="yourFormGroup" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" />
+        <div *ngIf="yourFormGroup.get('name')?.invalid && (yourFormGroup.get('name')?.dirty || yourFormGroup.get('name')?.touched)">
+          <div *ngIf="yourFormGroup.get('name')?.errors?.['required']">Name is required.</div>
+        </div>
+      </div>
+  
+      <div>
+        <label for="contact">Contact</label>
+        <input id="contact" formControlName="contact" />
+        <div *ngIf="yourFormGroup.get('contact')?.invalid && (yourFormGroup.get('contact')?.dirty || yourFormGroup.get('contact')?.touched)">
+          <div *ngIf="yourFormGroup.get('contact')?.errors?.['required']">Contact is required.</div>
+          <div *ngIf="yourFormGroup.get('contact')?.errors?.['invalidContact']">Contact must start with 07 and be 10 digits long.</div>
+        </div>
+      </div>
+  
+      <div>
+        <label for="location">Location</label>
+        <input id="location" formControlName="location" />
+        <div *ngIf="yourFormGroup.get('location')?.invalid && (yourFormGroup.get('location')?.dirty || yourFormGroup.get('location')?.touched)">
+          <div *ngIf="yourFormGroup.get('location')?.errors?.['required']">Location is required.</div>
+        </div>
+      </div>
+  
+      <div>
+        <label for="skill">Skill</label>
+        <select id="skill" formControlName="skill">
+          <option value="">Select a skill</option>
+          <option *ngFor="let skill of skills" [value]="skill">{{ skill }}</option>
+        </select>
+        <div *ngIf="yourFormGroup.get('skill')?.invalid && (yourFormGroup.get('skill')?.dirty || yourFormGroup.get('skill')?.touched)">
+          <div *ngIf="yourFormGroup.get('skill')?.errors?.['required']">Skill is required.</div>
+        </div>
+      </div>
+  
+      <div>
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description"></textarea>
+        <div *ngIf="yourFormGroup.get('description')?.invalid && (yourFormGroup.get('description')?.dirty || yourFormGroup.get('description')?.touched)">
+          <div *ngIf="yourFormGroup.get('description')?.errors?.['required']">Description is required.</div>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="yourFormGroup.invalid">Submit</button>
+  
+      <div *ngIf="responseMessage" class="response-message">
+        {{ responseMessage }}
+      </div>
+    </form>
+  </div>
+  
