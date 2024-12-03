@@ -2,7 +2,9 @@
 .container {
     padding: 20px;
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    color: auto;
   }
   
   /* Services section styling */

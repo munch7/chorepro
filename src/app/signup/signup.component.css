@@ -1,8 +1,9 @@
 /* General Styles for Container */
 .container {
     max-width: 800px; /* Maximum width for larger screens */
-    margin: 0 auto; /* Center align container */
-    padding: 20px; /* Padding inside container */
+    margin: 0 auto;
+    width: 100%;
+    padding: 30px 0px 0px 0px;
 }
 
 /* General Styles for Form */
