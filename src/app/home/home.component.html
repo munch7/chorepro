@@ -1,42 +1,64 @@
 <div class="container">
-  <!-- Hero Section -->
+
   <section class="hero">
     <h1>Welcome to ChorePro</h1>
     <p>Your partner in simplifying life’s tasks.</p>
-    <button class="hero-btn" aria-label="Get Started with ChorePro">Get Started</button>
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <strong>Step 1</strong>
+        <p>Select the services you need from our menu.</p>
+      </div>
+      <div class="step">
+        <strong>Step 2</strong>
+        <p>Write a detailed description of your needs.</p>
+      </div>
+      <div class="step">
+        <strong>Step 3</strong>
+        <p>Set a schedule and relax while we handle the rest!</p>
+      </div>
+    </div>
+    <button class="hero-btn" aria-label="Get Started with ChorePro">Get Started</button><br>
   </section>
 
-  <!-- About Us Section -->
-  <section class="about-us">
-    <h2>About Us</h2>
-    <p>
-      <strong>ChorePro: Simplifying your life.</strong> We provide tailored services to help you manage 
-      day-to-day tasks with ease. From personal errands to event planning, our dedicated professionals 
-      are here to support you every step of the way.
-    </p>
+  <!-- <section class="search-section">
+    <input type="text" placeholder="Search for services or FAQs..." class="search-bar">
+    <button class="search-btn" aria-label="Search">Search</button>
+  </section> -->
+
+</div>
+  
+<!-- <div class="container">
+
+  <section class="interactive">
+    <h2>Explore Our Features</h2>
+    <p>Hover over the boxes to learn more!</p>
+    <div class="interactive-grid">
+      <div class="feature-box" role="button" tabindex="0" aria-label="Custom Scheduling">
+        <h3>Custom Scheduling</h3>
+        <p>Book services at your convenience.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Exclusive Discounts</h3>
+        <p>Sign up now and save more!</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li><strong>Electronics:</strong> Indoor & outdoor repairs, Portable devices repairs</li>
-      <li><strong>Plumbing:</strong> Complete plumbing solutions</li>
-      <li><strong>Deliveries / Errands:</strong> Supermarket and Soko deliveries, Personal errands</li>
-      <li><strong>Decorating:</strong> Painting, Event set-up</li>
-      <li><strong>House / Pet Sitting:</strong> Reliable house and pet sitting services</li>
-      <li><strong>Assembly / Mounting:</strong> Home appliance installation (indoor/outdoor)</li>
-      <li><strong>Moving:</strong> Logistics for appliance moving and relocation</li>
-      <li><strong>Cleaning:</strong> Laundry, Household and Compound cleaning</li>
-      <li><strong>Outdoor Help:</strong> Landscaping, Gardening, Farming</li>
-      <li><strong>Home Repairs:</strong> Roofing, Masonry, Carpentry repairs</li>
-    </ul>
-    <a routerLink="/services">
-      <button>Explore More</button>
-    </a>
+  <section class="quick-links">
+    <h2>Popular Services</h2>
+    <div class="links">
+      <a href="/services#cleaning">Cleaning</a>
+      <a href="/services#repairs">Home Repairs</a>
+      <a href="/services#errands">Errands</a>
+      <a href="/services#gardening">Gardening</a>
+    </div>
   </section>
 
-  <!-- Why Choose Us Section -->
+</div> -->
+  
+<div class="container">
+
   <section class="why-choose-us">
     <h2>Why Choose ChorePro?</h2>
     <p><strong>Reliability:</strong> Dependable, trustworthy service.</p>
@@ -45,7 +67,6 @@
     <p><strong>Affordability:</strong> Competitive pricing with no compromise on quality.</p>
   </section>
 
-  <!-- Testimonials Section -->
   <section class="testimonials">
     <h2>What Our Clients Say</h2>
     <div class="testimonial-carousel">
@@ -59,44 +80,66 @@
       </div>
       <div class="testimonial">
         <p>"Amazing service! My home is always in perfect shape thanks to ChorePro."</p>
-        <cite>- Diana L., Busy Professional</cite>
-      </div>
-    </div>
-    
-    <c-carousel [interval]="0">
-      <c-carousel-inner>
-        <c-carousel-item *ngFor="let slide of slides">
-          <div class="testimonial">
-            <p>"ChorePro has been a lifesaver! I can finally focus on the important things."</p>
-            <cite>- Sarah K., Homeowner</cite>
-          </div>
-        </c-carousel-item>
-      </c-carousel-inner>
-      <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
-      <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
-    </c-carousel>
-  </section>
-
-  <!-- Interactive Features Section -->
-  <section class="interactive">
-    <h2>Explore Our Features</h2>
-    <p>Hover over the boxes to learn more!</p>
-    <div class="interactive-grid">
-      <div class="feature-box">
-        <h3>Custom Scheduling</h3>
-        <p>Book services at your convenience.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Exclusive Discounts</h3>
-        <p>Sign up now and save more!</p>
+        <cite>- Diana W., Business Owner</cite>
       </div>
     </div>
   </section>
 
-  <!-- Contact Us Section -->
-  <section class="contact-us">
-    <h2>Ready to Get Started?</h2>
-    <p>Reach out to us today to see how we can simplify your life. We're here to help you manage tasks with ease and efficiency.</p>
-    <button class="contact-btn">Contact Us</button>
+</div>
+
+<div class="container">
+
+  <section class="stats">
+    <h2>Our Impact</h2>
+    <div class="stats-grid">
+      <div class="stat">
+        <strong>5,000+</strong>
+        <p>Tasks Completed</p>
+      </div>
+      <div class="stat">
+        <strong>1,200+</strong>
+        <p>Happy Clients</p>
+      </div>
+      <div class="stat">
+        <strong>99%</strong>
+        <p>Customer Satisfaction</p>
+      </div>
+    </div>
   </section>
+
+  <section class="faq-preview">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <strong>What services does ChorePro offer?</strong>
+      <p>We provide a wide range of services, from home repairs to personal errands and cleaning.</p>
+    </div>
+    <div class="faq-item">
+      <strong>How do I book a service?</strong>
+      <p>Simply click on the 'Get Started' button and choose the services you need!</p>
+    </div>
+    <!-- <button class="hero-btn" aria-label="Get Started with ChorePro">Get Started</button><br> -->
+    <!-- <a href="/faq" class="view-all">View All FAQs</a> -->
+  </section>
+
+</div>
+  
+<div class="container">
+
+  <section class="newsletter">
+    <h2>Stay Updated</h2>
+    <p>Subscribe to our newsletter for tips, updates, and special offers.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" aria-label="Email">
+      <button type="submit" class="hero-btn">Subscribe</button>
+    </form>
+  </section>
+
+  <section class="partners">
+    <h2>Trusted By</h2>
+    <div class="partner-logos">
+      <img src="/images/partner1.png" alt="Partner 1">
+      <img src="/images/partner2.png" alt="Partner 2">
+    </div>
+  </section>
+
 </div>
