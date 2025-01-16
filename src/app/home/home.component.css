@@ -1,82 +1,67 @@
+/* General Container Styles */
 .container {
   width: 100%;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 20px;
-  background: rgb(255, 127, 80, 0.5);
+  background: rgba(255, 127, 80, 0.5);
   color: white;
 }
 
+/* Hero Section */
 section.hero {
   padding: 40px;
-  background-color: transparent;
   text-align: center;
 }
 .hero h2 {
   font-size: 2rem;
   margin-bottom: 20px;
 }
-.steps {
+.steps, .step {
   display: inline-block;
-  margin: 0px;
   padding: 10px 20px;
   color: white;
-  text-decoration: none;
   border-radius: 5px;
+  margin: 10px;
 }
 .step {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 20px;
   background-color: #ff7f50;
-  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.step strong {
-  font-size: 1.5rem;
-}
-.step:hover{
+.step:hover {
   background-color: #007BFF;
 }
-
-.why-choose-us{
+.why-choose-us {
   padding: 60px 20px;
 }
 
-/* CSS for Search Section */
+/* Search Section */
 section.search-section {
   display: flex;
   justify-content: center;
-  padding: 0px;
-  background-color: transparent;
+}
+.search-bar, .search-btn {
+  border-radius: 5px;
 }
 .search-bar {
   max-width: 300px;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 .search-btn {
   margin-left: 10px;
   padding: 10px 20px;
   background-color: #007BFF;
-  color: white;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
 }
 .search-btn:hover {
   background-color: #0056b3;
 }
 
-/* CSS for Quick Links */
+/* Quick Links */
 section.quick-links {
   padding: 40px;
   text-align: center;
-}
-.quick-links h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
 }
 .links a {
   display: inline-block;
@@ -91,15 +76,10 @@ section.quick-links {
   background-color: #0056b3;
 }
 
-/* CSS for Stats Section */
+/* Stats Section */
 section.stats {
   padding: 20px;
-  background-color: transparent;
   text-align: center;
-}
-.stats h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
 }
 .stats-grid {
   display: flex;
@@ -110,35 +90,24 @@ section.stats {
   flex: 1;
   max-width: 300px;
   min-width: 138px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 20px;
   background-color: #ff7f50;
+  padding: 10px 20px;
   border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .stat strong {
   font-size: 2rem;
-  display: block;
 }
 
-/* CSS for FAQ Preview */
+/* FAQ Preview */
 section.faq-preview {
   padding: 40px;
-  background-color: transparent;
-}
-.faq-preview h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
 }
 .faq-item {
   margin-bottom: 20px;
 }
-.faq-item strong {
-  font-size: 1.2rem;
-}
-.hero-btn{
-  margin-left: 10px;
+.hero-btn, .view-all {
+  margin-top: 20px;
   padding: 10px 20px;
   background-color: #ff7f50;
   color: white;
@@ -146,17 +115,11 @@ section.faq-preview {
   border-radius: 5px;
   cursor: pointer;
 }
-.view-all {
-  display: inline-block;
-  margin-top: 20px;
-  text-decoration: none;
-  color: white;
-}
 .view-all:hover {
   text-decoration: underline;
 }
 
-/* Testimonials Section */
+/* Testimonials */
 .testimonial-carousel {
   display: flex;
   gap: 10px;
@@ -164,33 +127,21 @@ section.faq-preview {
   padding: 10px;
   scroll-snap-type: x mandatory;
 }
-
 .testimonial {
-  flex: 0 0 100%; /* Full width on small screens */
-  max-width: 280px; /* Max width of a testimonial */
+  flex: 0 0 100%;
+  max-width: 280px;
   background-color: #ff7f50;
   padding: 20px;
   color: white;
   border-radius: 8px;
   text-align: center;
-  scroll-snap-align: start; /* Aligns the first testimonial at the start */
-  margin: 20px; /* Centers testimonials on larger screens */
+  scroll-snap-align: start;
 }
 
-/* CSS for Newsletter */
+/* Newsletter */
 section.newsletter {
   padding: 40px;
-  background-color: transparent;
   text-align: center;
-}
-.newsletter h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-.newsletter form {
-  display: inline-block;
-  justify-content: center;
-  gap: 10px;
 }
 .newsletter input[type="email"] {
   padding: 10px;
@@ -199,25 +150,16 @@ section.newsletter {
   border-radius: 5px;
 }
 .newsletter .hero-btn {
-  padding: 10px 20px;
   background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
 .newsletter .hero-btn:hover {
   background-color: #0056b3;
 }
 
-/* CSS for Partners */
+/* Partners */
 section.partners {
   padding: 40px;
   text-align: center;
-}
-.partners h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
 }
 .partner-logos {
   display: flex;
@@ -228,25 +170,6 @@ section.partners {
   max-width: 150px;
 }
 
-/* Media Query Adjustments */
-@media (max-width: 768px) {
-  .testimonial-carousel {
-    padding: 10px;
-    gap: 0; /* Optional: Remove gaps between testimonials */
-  }
-
-  .testimonial {
-    flex: 0 0 100%; /* Adjust the size for smaller screens */
-    scroll-snap-align: center; /* Centers visible testimonials */
-  }
-
-  .services {
-    margin: 0px;
-  }
-}
-
-
-
 /* Interactive Section */
 .interactive-grid {
   display: flex;
@@ -254,7 +177,6 @@ section.partners {
   gap: 15px;
   margin: 20px 0;
 }
-
 .feature-box {
   flex: 1;
   min-width: 100px;
@@ -264,96 +186,59 @@ section.partners {
   color: white;
   border-radius: 8px;
   text-align: center;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s, background-color 0.3s;
 }
-
 .feature-box:hover {
   background-color: #ff7f50;
   transform: scale(1.1);
 }
 
-/* Media Query Adjustments */
+/* Media Queries */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 1.5em;
-    padding: 20px;
+  .testimonial-carousel {
+    gap: 0;
   }
-
-  .steps {
-    padding: 0px;
+  .testimonial {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
   }
-
-  .stats-grid {
-    display: inline-block;
-  }
-
-  .stat{
-    padding: 10px;
-  }
-
-  .hero-btn {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-
   .interactive-grid {
     flex-direction: column;
     align-items: center;
   }
-
   .feature-box {
     width: 100%;
-    max-width: none;
     margin-bottom: 15px;
-  }
-
-  .services ul {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  }
-
-  .services h2 {
-    font-size: 1.8em;
   }
 }
 
 @media (max-width: 320px) {
-  section.newsletter {
-    padding: 0px;
-  }
-
   .hero-btn {
     padding: 6px 12px;
     font-size: 12px;
   }
-
   .services h2 {
     font-size: 1.5em;
   }
-
   .services li strong {
     font-size: 1em;
   }
-
   .services li p {
     font-size: 0.9em;
   }
 }
 
 @media (max-width: 406px) {
-  section.search-section{
+  section.search-section {
     display: inline-block;
   }
-
-  .search-bar{
+  .search-bar {
     margin-bottom: 10px;
   }
-
 }
 
 @media (max-width: 505px) {
-  input{
+  input {
     margin-bottom: 10px;
   }
-
-
 }
