@@ -1,0 +1,110 @@
+.body {
+    /* max-width: 1200px; */
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    background: rgb(255, 127, 80, 0.5);
+    color: white;
+}
+  
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+section {
+  padding: 40px 20px;
+  margin: 20px auto;
+  background: transparent;
+  border: 0px;
+  max-width: 800px;
+}
+
+.about p, .mission p, .core-values ul, .history p, .team p, .stats p, .testimonials .testimonial p {
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+ul li::before {
+  content: '\2022';
+  color: #ff7f50;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.hero-btn:hover {
+  background-color: #e66a3e;
+}
+
+.stats p {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.testimonials .testimonial {
+  background: #0056b3;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+testimonials cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.call-to-action {
+  text-align: center;
+}
+
+.call-to-action p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 20px;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-btn {
+    font-size: 0.9rem;
+  }
+}

@@ -2,25 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import {
-  CarouselComponent,
-  CarouselControlComponent,
-  CarouselInnerComponent,
-  CarouselItemComponent,
-  ThemeDirective
-} from '@coreui/angular';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     RouterModule,
-    ThemeDirective,
-    CarouselComponent,
-    CarouselInnerComponent,
     NgFor,
-    CarouselItemComponent,
-    CarouselControlComponent,
     RouterLink
   ],
   templateUrl: './home.component.html',

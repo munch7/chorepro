@@ -1,43 +1,159 @@
-/* General Styles */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  margin-bottom: 20px;
   padding: 20px;
+  border-radius: 20px;
   background: rgb(255, 127, 80, 0.5);
   color: white;
 }
 
-/* Responsive Hero Section */
-.hero {
+section.hero {
+  padding: 40px;
+  background-color: transparent;
   text-align: center;
-  background: url('/src/assets/hero-image.jpg') no-repeat center center/cover;
-  color: white;
-  padding: 50px 20px;
-  border-radius: 8px;
 }
-
-.hero h1 {
-  font-size: 1.8em;
-  margin-bottom: 15px;
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
-
-.hero-btn {
-  background-color: #ff7f50;
-  color: white;
+.steps {
+  display: inline-block;
+  margin: 0px;
   padding: 10px 20px;
-  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.step {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #ff7f50;
+  border-radius: 5px;
+}
+.step strong {
+  font-size: 1.5rem;
+}
+.step:hover{
+  background-color: #007BFF;
+}
+
+.why-choose-us{
+  padding: 60px 20px;
+}
+
+/* CSS for Search Section */
+section.search-section {
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  background-color: transparent;
+}
+.search-bar {
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.search-btn {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
-
-.hero-btn:hover {
+.search-btn:hover {
   background-color: #0056b3;
+}
+
+/* CSS for Quick Links */
+section.quick-links {
+  padding: 40px;
+  text-align: center;
+}
+.quick-links h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.links a {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  color: white;
+  background-color: #ff7f50;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.links a:hover {
+  background-color: #0056b3;
+}
+
+/* CSS for Stats Section */
+section.stats {
+  padding: 20px;
+  background-color: transparent;
+  text-align: center;
+}
+.stats h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+.stat {
+  flex: 1;
+  max-width: 300px;
+  min-width: 138px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #ff7f50;
+  border-radius: 5px;
+}
+.stat strong {
+  font-size: 2rem;
+  display: block;
+}
+
+/* CSS for FAQ Preview */
+section.faq-preview {
+  padding: 40px;
+  background-color: transparent;
+}
+.faq-preview h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.faq-item {
+  margin-bottom: 20px;
+}
+.faq-item strong {
+  font-size: 1.2rem;
+}
+.hero-btn{
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.view-all {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: white;
+}
+.view-all:hover {
+  text-decoration: underline;
 }
 
 /* Testimonials Section */
@@ -50,14 +166,86 @@ body {
 }
 
 .testimonial {
-  flex: 0 0 280px;
+  flex: 0 0 100%; /* Full width on small screens */
+  max-width: 280px; /* Max width of a testimonial */
   background-color: #ff7f50;
-  color: white;
   padding: 20px;
+  color: white;
   border-radius: 8px;
   text-align: center;
-  scroll-snap-align: start;
+  scroll-snap-align: start; /* Aligns the first testimonial at the start */
+  margin: 20px; /* Centers testimonials on larger screens */
 }
+
+/* CSS for Newsletter */
+section.newsletter {
+  padding: 40px;
+  background-color: transparent;
+  text-align: center;
+}
+.newsletter h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.newsletter form {
+  display: inline-block;
+  justify-content: center;
+  gap: 10px;
+}
+.newsletter input[type="email"] {
+  padding: 10px;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.newsletter .hero-btn {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.newsletter .hero-btn:hover {
+  background-color: #0056b3;
+}
+
+/* CSS for Partners */
+section.partners {
+  padding: 40px;
+  text-align: center;
+}
+.partners h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.partner-logos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.partner-logos img {
+  max-width: 150px;
+}
+
+/* Media Query Adjustments */
+@media (max-width: 768px) {
+  .testimonial-carousel {
+    padding: 10px;
+    gap: 0; /* Optional: Remove gaps between testimonials */
+  }
+
+  .testimonial {
+    flex: 0 0 100%; /* Adjust the size for smaller screens */
+    scroll-snap-align: center; /* Centers visible testimonials */
+  }
+
+  .services {
+    margin: 0px;
+  }
+}
+
+
 
 /* Interactive Section */
 .interactive-grid {
@@ -84,10 +272,23 @@ body {
   transform: scale(1.1);
 }
 
-/* Media Query for Smaller Screens (320px) */
+/* Media Query Adjustments */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 1.5em;
+    padding: 20px;
+  }
+
+  .steps {
+    padding: 0px;
+  }
+
+  .stats-grid {
+    display: inline-block;
+  }
+
+  .stat{
+    padding: 10px;
   }
 
   .hero-btn {
@@ -106,18 +307,53 @@ body {
     margin-bottom: 15px;
   }
 
-  .testimonial {
-    flex: 0 0 85%;
+  .services ul {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .services h2 {
+    font-size: 1.8em;
   }
 }
 
 @media (max-width: 320px) {
-  .hero h1 {
-    font-size: 1.2em;
+  section.newsletter {
+    padding: 0px;
   }
 
   .hero-btn {
     padding: 6px 12px;
     font-size: 12px;
   }
+
+  .services h2 {
+    font-size: 1.5em;
+  }
+
+  .services li strong {
+    font-size: 1em;
+  }
+
+  .services li p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 406px) {
+  section.search-section{
+    display: inline-block;
+  }
+
+  .search-bar{
+    margin-bottom: 10px;
+  }
+
+}
+
+@media (max-width: 505px) {
+  input{
+    margin-bottom: 10px;
+  }
+
+
 }
