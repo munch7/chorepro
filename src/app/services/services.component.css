@@ -1,4 +1,3 @@
-/* Container styling */
 .container {
     width: 100%;
     margin-bottom: 20px;
@@ -6,39 +5,47 @@
     padding: 20px;
     background: rgb(255, 127, 80, 0.5);
     color: white;
-  }
-  
-  select, option{
-    background: transparent;
-  }
+}
+ 
+.services-intro {
+  padding: 40px 20px;
+  margin: 20px auto;
+  background: transparent;
+  border: 0px;
+  max-width: 800px;
+}
 
-  option{
-    color: black;
-  }
+.services{
+  padding: 40px 20px;
+}
+ 
+p{
+  padding-bottom: 10px;
+}
 
-  .hero-btn{
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #ff7f50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+select{
+  background: transparent;
+}
 
-  .hero-btn:hover{
-    background-color: #007BFF;
-  }
+option{
+  color: black;
+}
 
-  /* Services section styling */
-  .services {
-    margin-bottom: 20px;
-  }
-  
-  .services h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
+.hero-btn{
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero-btn:hover{
+  background-color: #007BFF;
+}
+
+
   
   .services select {
     padding: 10px; 
