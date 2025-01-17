@@ -1,12 +1,35 @@
 /* Container styling */
 .container {
-    padding: 20px;
-    max-width: 1200px;
     width: 100%;
-    margin: 0 auto;
-    color: auto;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    background: rgb(255, 127, 80, 0.5);
+    color: white;
   }
   
+  select, option{
+    background: transparent;
+  }
+
+  option{
+    color: black;
+  }
+
+  .hero-btn{
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .hero-btn:hover{
+    background-color: #007BFF;
+  }
+
   /* Services section styling */
   .services {
     margin-bottom: 20px;
@@ -18,7 +41,9 @@
   }
   
   .services select {
-    padding: 10px;
+    padding: 10px; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
     font-size: 1em;
     margin-bottom: 20px;
   }
@@ -36,7 +61,7 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 15px;
-    background-color: #fff;
+    background-color: transparent;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex: 1 1 calc(33% - 20px); /* Responsive card sizing */
     box-sizing: border-box;
@@ -57,3 +82,34 @@
     margin: 5px 0;
   }
   
+  summary{
+    font-size: larger;
+    color: black;
+    cursor: pointer;
+  }
+  summary:active{
+    color: #0056b3;
+  }
+
+  
+section.search-section {
+  display: flex;
+  justify-content: center;
+}
+.search-bar, .search-btn {
+  border-radius: 5px;
+}
+.search-bar {
+  max-width: 300px;
+  padding: 10px;
+}
+.search-btn {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  border: none;
+  cursor: pointer;
+}
+.search-btn:hover {
+  background-color: #0056b3;
+}

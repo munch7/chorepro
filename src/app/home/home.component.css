@@ -11,6 +11,7 @@
 /* Hero Section */
 section.hero {
   padding: 40px;
+  margin-bottom: 20px;
   text-align: center;
 }
 .hero h2 {
@@ -46,6 +47,7 @@ section.search-section {
 .search-bar {
   max-width: 300px;
   padding: 10px;
+  border: 0px;
 }
 .search-btn {
   margin-left: 10px;
@@ -214,7 +216,6 @@ section.partners {
 
 @media (max-width: 320px) {
   .hero-btn {
-    padding: 6px 12px;
     font-size: 12px;
   }
   .services h2 {
@@ -225,6 +226,12 @@ section.partners {
   }
   .services li p {
     font-size: 0.9em;
+  }
+}
+
+@media (max-width: 320px) {
+  section.hero{
+    padding: 0px;
   }
 }
 

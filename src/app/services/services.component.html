@@ -3,16 +3,47 @@
       <h2>Services We Provide</h2>
       
       <!-- Dropdown for selecting skill -->
+
+      <section class="services">
+
+        <!-- Services List -->
+        <ul class="service-list">
+          <li class="service-item" *ngFor="let skill of skills" [value]="skill">
+            <!-- <img src="icon.png" alt="Service Icon" class="service-icon"> -->
+            <div class="service-details">
+              <strong>{{ skill }}</strong>
+              <!-- <p>Professional cleaning for your home or office.</p>
+              <p>Price: $50 - $100</p> -->
+            </div>
+          </li>
+        </ul>
+        <button class="hero-btn">Book Now</button>
+        
+        <!-- FAQ Section -->
+        <div class="faq">
+          <h3>Frequently Asked Questions</h3>
+          <details>
+            <summary>What is included in the cleaning service?</summary>
+            <p>Our cleaning service includes dusting, vacuuming, and deep cleaning.</p>
+          </details>
+          <details>
+            <summary>Do you provide same-day service?</summary>
+            <p>Yes, same-day service is available for select services. Contact us for more details.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Display filtered posts -->
       <div>
-        <label for="skill-dropdown">Select a Service:</label>
+        <label for="skill-dropdown">Search for a service provider:</label>
         <select id="skill-dropdown" (change)="onSkillChange($event)">
+          <option >- select -</option>
           <option value="">All Services</option>
           <option *ngFor="let skill of skills" [value]="skill">{{ skill }}</option>
         </select>
       </div>
-      
-      <!-- Display filtered posts -->
-      <ul>
+
+      <ul *ngIf="filteredPosts.length > 0 || selectedSkill === '- select -'; else noData">
         <li *ngFor="let post of filteredPosts">
           <strong>{{ post.name }}</strong>
           <p>Contact: {{ post.contact }}</p>
@@ -21,6 +52,11 @@
           <p>Description: {{ post.description }}</p>
         </li>
       </ul>
+
+      <ng-template #noData>
+        <p>No services to display. Please select a service from the dropdown.</p>
+      </ng-template>
+      
     </section>
   </div>
   

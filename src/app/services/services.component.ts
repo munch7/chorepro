@@ -11,7 +11,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   styleUrls: ['./services.component.css']
 })
 export class ServicesComponent implements OnInit {
-  selectedSkill: string = ''; // To store the selected skill from dropdown
+  selectedSkill: string = '- select -';
   filteredPosts: any[] = [];
   posts: any[] = [];
   skills: string[] = []; // Array to hold unique skills
@@ -56,17 +56,23 @@ export class ServicesComponent implements OnInit {
   }
 
   filterBySkill() {
-    if (this.selectedSkill) {
-      this.filteredPosts = this.posts.filter(post => post && post.skill === this.selectedSkill); // Check if post is not null
-    } else {
+    if (this.selectedSkill === '' || this.selectedSkill === 'All Services') {
+      // If 'All Services' is selected, show all posts
       this.filteredPosts = this.posts;
+    } else if (this.selectedSkill && this.selectedSkill !== '- select -') {
+      // Otherwise, filter by the selected skill
+      this.filteredPosts = this.posts.filter(post => post && post.skill === this.selectedSkill);
+    } else {
+      // Default case (e.g., '- select -'), show no posts
+      this.filteredPosts = [];
     }
     console.log('Filtered Posts:', this.filteredPosts); // Debugging log
-  }
+  }    
 
   onSkillChange(event: Event) {
-    const target = event.target as HTMLSelectElement; // Cast to HTMLSelectElement
+    const target = event.target as HTMLSelectElement;
     this.selectedSkill = target.value;
-    this.filterBySkill(); // Apply filter when skill changes
+    this.filterBySkill(); // Apply the filter logic whenever the dropdown changes
   }
+  
 }
