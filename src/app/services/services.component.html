@@ -1,6 +1,6 @@
 <div class="container">
 
-  <section class="services-intro">
+  <section>
     <h2>Welcome to Our Services</h2>
     <p>
       Explore a wide range of professional services tailored to your needs. Whether you're looking for home cleaning, 
@@ -31,7 +31,7 @@
 
 <div class="container">
 
-  <div class="faq">
+  <section>
     <h3>Frequently Asked Questions</h3>
     <details>
       <summary>What is included in the cleaning service?</summary>
@@ -41,34 +41,35 @@
       <summary>Do you provide same-day service?</summary>
       <p>Yes, same-day service is available for select services. Contact us for more details.</p>
     </details>
-  </div>
+  </section>
 
 </div>
 
 <div class="container">
 
-  <div>
+  <section class="services">
     <label for="skill-dropdown">Search for a service provider:</label>
     <select id="skill-dropdown" (change)="onSkillChange($event)">
       <option >- select -</option>
-      <option value="">All Services</option>
+      <option value="">All Providers</option>
       <option *ngFor="let skill of skills" [value]="skill">{{ skill }}</option>
     </select>
-  </div>
 
-  <ul *ngIf="filteredPosts.length > 0 || selectedSkill === '- select -'; else noData">
-    <li *ngFor="let post of filteredPosts">
-      <strong>{{ post.name }}</strong>
-      <p>Contact: {{ post.contact }}</p>
-      <p>Location: {{ post.location }}</p>
-      <p>Skill: {{ post.skill }}</p>
-      <p>Description: {{ post.description }}</p>
-    </li>
-  </ul>
+    <ul *ngIf="filteredPosts.length > 0 || selectedSkill === '- select -'; else noData">
+      <li *ngFor="let post of filteredPosts">
+        <strong>{{ post.name }}</strong>
+        <p>Contact: {{ post.contact }}</p>
+        <p>Location: {{ post.location }}</p>
+        <p>Skill: {{ post.skill }}</p>
+        <p>Description: {{ post.description }}</p>
+      </li>
+    </ul>
 
-  <ng-template #noData>
-    <p>No services to display. Please select a service from the dropdown.</p>
-  </ng-template>
+    <ng-template #noData>
+      <p>No services to display. Please select a service from the dropdown.</p>
+    </ng-template>
+  </section>
+
       
 </div>
   
