@@ -2,21 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Skill } from '../shared/skills.model';
+import { Skills } from '../shared/skills.service';
 
 @Component({
   selector: 'app-services',
   standalone: true,
   imports: [CommonModule, RouterModule, HttpClientModule ],
   templateUrl: './services.component.html',
-  styleUrls: ['./services.component.css']
+  styleUrls: ['./services.component.css'],
+  providers: [Skills]
 })
 export class ServicesComponent implements OnInit {
   selectedSkill: string = '- select -';
   filteredPosts: any[] = [];
   posts: any[] = [];
-  skills: string[] = []; // Array to hold unique skills
+  skills: Skill[] = [];
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {}
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private sservice: Skills
+  ) {
+    this.skills = this.sservice.getSkills();
+  }
 
   ngOnInit() {
     this.getFormData();
@@ -29,7 +38,6 @@ export class ServicesComponent implements OnInit {
           console.log('Form data retrieved successfully:', data);
           this.posts = data ? Object.values(data) : []; // Ensure data is not null
           this.shufflePosts();
-          this.extractSkills(); // Extract skills after data is loaded
           this.filterBySkill(); // Apply filter after data is loaded
         },
         error => console.error('Error retrieving form data:', error)
@@ -44,16 +52,6 @@ export class ServicesComponent implements OnInit {
     console.log('Shuffled Posts:', this.posts); // Debugging log
   }
 
-  extractSkills() {
-    const skillSet = new Set<string>(); // Use a Set to get unique skills
-    this.posts.forEach(post => {
-      if (post && post.skill) { // Check if post and post.skill are not null
-        skillSet.add(post.skill);
-      }
-    });
-    this.skills = Array.from(skillSet);
-    console.log('Available Skills:', this.skills); // Debugging log
-  }
 
   filterBySkill() {
     if (this.selectedSkill === '' || this.selectedSkill === 'All Services') {

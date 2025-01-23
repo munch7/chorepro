@@ -11,6 +11,8 @@ import {
   ValidatorFn, 
   Validators
 } from '@angular/forms';
+import { Skills } from '../shared/skills.service';
+import { Skill } from '../shared/skills.model';
 
 @Component({
   selector: 'app-signup',
@@ -18,26 +20,17 @@ import {
   imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
+  providers: [Skills]
 })
 export class SignupComponent {
   yourFormGroup: FormGroup;
-  skills: string[] = [
-    'Electronics',
-    'Plumbing',
-    'Deliveries / Errands',
-    'Decorating',
-    'House / Pet Sitting',
-    'Assembly / Mounting',
-    'Moving',
-    'Cleaning',
-    'Outdoor Help',
-    'Home Repairs'
-  ];
+  skills: Skill[] = [];
   responseMessage: string | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private sservcie: Skills
   ) {
     this.yourFormGroup = this.formBuilder.group({
       name: ['', Validators.required],
@@ -46,6 +39,7 @@ export class SignupComponent {
       skill: ['', Validators.required],
       description: ['', Validators.required]
     });
+    this.skills = this.sservcie.getSkills();
   }
 
   contactValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {

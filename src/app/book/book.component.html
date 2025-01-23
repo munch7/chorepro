@@ -1,0 +1,103 @@
+<div class="container">
+    <form [formGroup]="yourFormGroup" (ngSubmit)="onSubmit()">
+        <h1>Customer Details Form</h1>
+  
+      <!-- Skills Field with Cards -->
+      <div class="form-group">
+        <label for="skills">Skills (Select at least one)</label>
+        <div class="skills-container">
+          <div
+            class="skill-card"
+            *ngFor="let skill of skills; let i = index"
+            [class.selected]="selectedSkills.includes(skill.name)"
+            (click)="toggleSkillSelection(skill.name)"
+          >
+            <h3>{{ skill.name }}</h3>
+            <p>{{ skill.description }}</p>
+          </div>
+        </div>
+        <div class="error" *ngIf="selectedSkills.length === 0 && formSubmitted">
+          <small>You must select at least one skill.</small>
+        </div>
+      </div>
+  
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input
+          id="name"
+          formControlName="name"
+          type="text"
+          placeholder="Enter your full name"
+          class="form-control"
+        />
+        <div
+          class="error"
+          *ngIf="yourFormGroup.get('name')?.invalid && (yourFormGroup.get('name')?.dirty || yourFormGroup.get('name')?.touched)"
+        >
+          <small *ngIf="yourFormGroup.get('name')?.errors?.['required']">Name is required.</small>
+        </div>
+      </div>
+
+      <!-- Location Field -->
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input
+          id="location"
+          formControlName="location"
+          type="text"
+          placeholder="Enter your location"
+          class="form-control"
+        />
+        <div
+          class="error"
+          *ngIf="yourFormGroup.get('location')?.invalid && (yourFormGroup.get('location')?.dirty || yourFormGroup.get('location')?.touched)"
+        >
+          <small *ngIf="yourFormGroup.get('location')?.errors?.['required']">Location is required.</small>
+        </div>
+      </div>
+  
+      <!-- Description Field -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          placeholder="Provide additional details"
+          class="form-control"
+        ></textarea>
+        <div
+          class="error"
+          *ngIf="yourFormGroup.get('description')?.invalid && (yourFormGroup.get('description')?.dirty || yourFormGroup.get('description')?.touched)"
+        >
+          <small *ngIf="yourFormGroup.get('description')?.errors?.['required']">Description is required.</small>
+        </div>
+      </div>
+  
+    <!-- Date Field -->
+    <div class="form-group">
+        <label for="date">Preferred Date</label>
+        <input
+          id="date"
+          formControlName="date"
+          type="date"
+          class="form-control"
+        />
+        <div
+          class="error"
+          *ngIf="yourFormGroup.get('date')?.invalid && (yourFormGroup.get('date')?.dirty || yourFormGroup.get('date')?.touched)"
+        >
+          <small *ngIf="yourFormGroup.get('date')?.errors?.['required']">Date is required.</small>
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary" [disabled]="yourFormGroup.invalid">Submit</button>
+  
+      <!-- Response Message -->
+      <div *ngIf="responseMessage" class="response-message">
+        {{ responseMessage }}
+      </div>
+    </form>
+  </div>
+  
