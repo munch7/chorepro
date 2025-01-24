@@ -1,27 +1,20 @@
-.body {
-    /* max-width: 1200px; */
-    width: 100%;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    padding: 20px;
-    background: rgb(255, 127, 80, 0.5);
-    color: white;
+.container {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 0px;
+  border-radius: 20px;
+  background: rgba(255, 127, 80, 0.5);
+  color: white;
+}
+
+section{
+  padding: 40px 20px 10px;
+  margin-bottom: 20px;
+  text-align: center;
 }
   
 h1, h2 {
   text-align: center;
-  margin-bottom: 20px;
-}
-
-section {
-  padding: 40px 20px;
-  margin: 20px auto;
-  background: transparent;
-  border: 0px;
-  max-width: 800px;
-}
-
-.about p, .mission p, .core-values ul, .history p, .team p, .stats p, .testimonials .testimonial p {
   margin-bottom: 20px;
 }
 
@@ -93,6 +86,12 @@ testimonials cite {
 .call-to-action p {
   font-size: 1.2rem;
   margin-bottom: 20px;
+}
+
+@media (min-width: 1024px) {
+  .container{
+    max-width: 1000px;
+  }
 }
 
 @media (max-width: 768px) {

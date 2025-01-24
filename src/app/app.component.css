@@ -4,12 +4,12 @@
     margin: 0 auto;
     text-align: center;
     position: relative;
-    background: linear-gradient(135deg, #ff7f50, #ff9c73, #007BFF, #0056b3);
-    /* background-image: url('../assets/20.PNG');
+    /* background: linear-gradient(135deg, #ff7f50, #ff9c73, #007BFF, #0056b3); */
+    background-image: url('../assets/20.PNG');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; */
+    background-attachment: fixed;
 }
 .container::before {
     content: '';
