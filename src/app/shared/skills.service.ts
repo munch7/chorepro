@@ -20,7 +20,7 @@ export class Skills {
         ),
         new Skill (
             'Moving',
-            'Expertise in helping with packing, lifting, loading, and unloading during a move. This includes ensuring items are handled with care to avoid damage during transportation.'
+            'Expertise in logistics, packing, lifting, loading, and unloading during a move. This includes ensuring items are handled with care to avoid damage during transportation.'
         ),
         new Skill (
             'Cleaning',

@@ -1,0 +1,50 @@
+.container {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0px;
+    border-radius: 20px;
+    background: rgba(255, 127, 80, 0.5);
+    color: white;
+}
+
+section{
+    padding: 40px 20px 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+  
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+  
+p{
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+ul, li{
+    text-align: left;
+    padding: 10px;
+}
+
+.listy{
+    display: flex;
+    padding: 20px;
+}
+
+@media (min-width: 1024px) {
+    .container{
+      max-width: 1000px;
+    }
+}
+
+@media (max-width: 560px) {
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+  .listy{
+    display: block;
+    padding: 0px;
+  }
+}

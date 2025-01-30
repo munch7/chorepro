@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Skill } from '../shared/skills.model';
 import { Skills } from '../shared/skills.service';
 import { RouterModule } from '@angular/router';
@@ -29,6 +29,8 @@ export class BookComponent {
     this.yourFormGroup = this.formBuilder.group({
       name: ['', Validators.required],
       location: ['', Validators.required],
+      contact: ['', Validators.required],
+      email: ['', Validators.required],
       description: ['', Validators.required],
       date: ['', Validators.required]
     });
