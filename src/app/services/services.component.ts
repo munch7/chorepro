@@ -59,9 +59,10 @@ export class ServicesComponent implements OnInit {
       this.filteredPosts = this.posts;
     } else if (this.selectedSkill && this.selectedSkill !== '- select -') {
       // Otherwise, filter by the selected skill
-      this.filteredPosts = this.posts.filter(post => post && post.skill === this.selectedSkill);
+      this.filteredPosts = this.posts.filter(post => post && post.Skills === this.selectedSkill);
     } else {
       // Default case (e.g., '- select -'), show no posts
+      console.log('error');
       this.filteredPosts = [];
     }
     console.log('Filtered Posts:', this.filteredPosts); // Debugging log

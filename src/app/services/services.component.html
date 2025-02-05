@@ -50,7 +50,7 @@
     <select id="skill-dropdown" (change)="onSkillChange($event)">
       <option >- select -</option>
       <option value="">All Providers</option>
-      <option *ngFor="let skill of skills" [value]="skill">{{ skill.name }}</option>
+      <!-- <option *ngFor="let skill of skills" [value]="skill">{{ skill.name }}</option> -->
     </select>
 
     <ul *ngIf="filteredPosts.length > 0 || selectedSkill === '- select -'; else noData">
