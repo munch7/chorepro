@@ -29,7 +29,7 @@
         <label for="skill">Skill</label>
         <select id="skill" formControlName="skill">
           <option value="">Select a skill</option>
-          <option *ngFor="let skill of skills" [value]="skill">{{ skill.name }}</option>
+          <option *ngFor="let skill of skills" [value]="skill.name">{{ skill.name }}</option>
         </select>
         <div *ngIf="yourFormGroup.get('skill')?.invalid && (yourFormGroup.get('skill')?.dirty || yourFormGroup.get('skill')?.touched)">
           <div *ngIf="yourFormGroup.get('skill')?.errors?.['required']">Skill is required.</div>
