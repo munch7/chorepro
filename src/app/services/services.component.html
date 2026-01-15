@@ -1,72 +1,97 @@
-<div class="container">
+<section class="page-header bg-secondary">
+  <div class="main-wrapper header-content text-center">
+    <h1 class="outfit-font">Professional Services</h1>
+    <p class="lead-text">Discover our range of expert solutions designed to make your life easier.</p>
+  </div>
+</section>
 
-  <section>
-    <h2>Welcome to Our Services</h2>
-    <p>
-      Explore a wide range of professional services tailored to your needs. Whether you're looking for home cleaning, 
-      plumbing, or skilled artisans, we have trusted experts ready to assist. 
-    </p>
-  </section>
+<section class="services-list-section main-wrapper">
+  <div class="section-header text-center">
+    <h2 class="outfit-font">Our Expertise</h2>
+    <p>From home maintenance to specialized crafts, we have you covered.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card" *ngFor="let skill of skills">
+      <div class="service-icon">
+        <i class="fa fa-check-circle"></i>
+      </div>
+      <div class="service-info">
+        <h3>{{ skill.name }}</h3>
+        <p>{{ skill.description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="services-cta text-center">
+    <button class="btn btn-primary btn-lg" routerLink="/book">Book Service Now</button>
+  </div>
+</section>
 
-</div>
+<section class="provider-search-section bg-light">
+  <div class="main-wrapper">
+    <div class="section-header text-center">
+      <h2 class="outfit-font">Find a Provider</h2>
+      <p>Search through our network of verified professionals.</p>
+    </div>
 
-<div class="container">
-
-  <section class="services">
-    <h2>Services We Provide</h2>
-    <ul class="service-list">
-      <li class="service-item" *ngFor="let skill of skills">
-        <div class="service-details">
-          <strong>{{ skill.name }}</strong>
-          <p>{{ skill.description }}</p>
+    <div class="search-controls glass">
+      <div class="control-group">
+        <label for="skill-dropdown">Filter by Category</label>
+        <div class="select-wrapper">
+          <select id="skill-dropdown" (change)="onSkillChange($event)">
+            <option>- select -</option>
+            <option value="">All Categories</option>
+            <option *ngFor="let skill of skills" [value]="skill.name">{{ skill.name }}</option>
+          </select>
         </div>
-      </li>
-    </ul>
-    <button class="hero-btn" routerLink="/book">Book Now</button>
-  </section>
-    
-</div>
+      </div>
+    </div>
 
-<div class="container">
+    <div class="results-area">
+      <div class="providers-grid" *ngIf="filteredPosts.length > 0 || selectedSkill === '- select -'; else noData">
+        <div class="provider-card" *ngFor="let post of filteredPosts">
+          <div class="provider-badge">{{ post.skill }}</div>
+          <h3>{{ post.name }}</h3>
+          <div class="provider-meta">
+            <span><i class="fa fa-map-marker"></i> {{ post.location }}</span>
+          </div>
+          <p>{{ post.description }}</p>
+          <button class="btn btn-secondary btn-sm" routerLink="/book">Book Now</button>
+        </div>
+      </div>
 
-  <section>
-    <h3>Frequently Asked Questions</h3>
-    <details>
+      <ng-template #noData>
+        <div class="no-results text-center">
+          <div class="no-results-icon"><i class="fa fa-search"></i></div>
+          <p>No service providers found for this category. Please try another selection.</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section main-wrapper">
+  <h2 class="section-title outfit-font text-center">Frequently Asked Questions</h2>
+  <div class="faq-container">
+    <details class="faq-item">
       <summary>What is included in the cleaning service?</summary>
-      <p>Our cleaning service includes dusting, vacuuming, and deep cleaning.</p>
+      <div class="faq-content">
+        <p>Our cleaning service includes dusting, vacuuming, mopping, and deep cleaning of bathrooms and kitchens. We
+          tailor each visit to your specific needs.</p>
+      </div>
     </details>
-    <details>
+    <details class="faq-item">
       <summary>Do you provide same-day service?</summary>
-      <p>Yes, same-day service is available for select services. Contact us for more details.</p>
+      <div class="faq-content">
+        <p>Yes, same-day service is available for select urgent tasks like plumbing or locksmith services. Contact us as
+          early as possible for the best availability.</p>
+      </div>
     </details>
-  </section>
-
-</div>
-
-<div class="container">
-
-  <section class="services">
-    <label for="skill-dropdown">Search for a service provider:</label>
-    <select id="skill-dropdown" (change)="onSkillChange($event)">
-      <option >- select -</option>
-      <option value="">All Providers</option>
-      <!-- <option *ngFor="let skill of skills" [value]="skill">{{ skill.name }}</option> -->
-    </select>
-
-    <ul *ngIf="filteredPosts.length > 0 || selectedSkill === '- select -'; else noData">
-      <li *ngFor="let post of filteredPosts">
-        <strong>{{ post.name }}</strong>
-        <p>Location: {{ post.location }}</p>
-        <p>Skill: {{ post.skill }}</p>
-        <p>Description: {{ post.description }}</p>
-      </li>
-    </ul>
-
-    <ng-template #noData>
-      <p>No service providers to display. Please select a different service from the dropdown.</p>
-    </ng-template>
-  </section>
-
-      
-</div>
-  
+    <details class="faq-item">
+      <summary>How are your providers verified?</summary>
+      <div class="faq-content">
+        <p>Every provider on ChorePro undergoes a rigorous background check, skill verification, and interview process
+          to ensure the highest standards of safety and quality.</p>
+      </div>
+    </details>
+  </div>
+</section>

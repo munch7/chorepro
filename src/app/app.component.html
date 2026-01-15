@@ -1,24 +1,42 @@
-<div class="container text-center">
-  <section class="head">
-    <img src="../assets/3.png" width="150px" alt="ChorePro Logo" style="margin: 0;">
-    <nav>
-      <a routerLink="/home">Home</a>
-      <a routerLink="/about">About</a>
-      <a routerLink="/contacts">Contacts</a>
-      <a routerLink="/services">Services</a>
-      <a routerLink="/book">Booking</a>
-      <a routerLink="/signup">Signup</a>
-    </nav>
-  </section>
+<div class="app-container">
+  <header class="main-header glass sticky" [class.menu-open]="isMenuOpen">
+    <div class="nav-content main-wrapper">
+      <div class="logo" routerLink="/home" (click)="closeMenu()">
+        <img src="../assets/3.png" alt="ChorePro Logo">
+        <span class="brand-name outfit-font">ChorePro</span>
+      </div>
+      <nav [class.open]="isMenuOpen">
+        <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()">Home</a>
+        <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+        <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Services</a>
+        <a routerLink="/contacts" routerLinkActive="active" (click)="closeMenu()">Contacts</a>
+        <a routerLink="/book" routerLinkActive="active" (click)="closeMenu()">Booking</a>
+        <a routerLink="/signup" routerLinkActive="active" class="signup-link" (click)="closeMenu()">Signup</a>
+      </nav>
+      <div class="mobile-menu-toggle" (click)="toggleMenu()">
+        <i class="fa" [class.fa-bars]="!isMenuOpen" [class.fa-times]="isMenuOpen"></i>
+      </div>
+    </div>
+  </header>
 
-  <router-outlet></router-outlet>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
 
-  <footer class="footer">
-    <h2>Get In Touch</h2>
-    <p>
-      Contact us today to learn more about how ChorePro can help you with your everyday tasks.
-    </p>
-      <a href="mailto:francismburu75&#64;gmail.com"><i class="fa fa-envelope"></i> francismburu75&#64;gmail.com</a><br>
-      <a href="tel:+254-798-375-876"><i class="fa fa-phone"></i> +254 798 375 876</a>
+  <footer class="main-footer">
+    <div class="footer-content main-wrapper">
+      <div class="footer-section brand-info">
+        <h2 class="outfit-font">ChorePro</h2>
+        <p>Simplifying your life, one chore at a time.</p>
+      </div>
+      <div class="footer-section contact-info">
+        <h3>Get In Touch</h3>
+        <a href="mailto:francismburu75&#64;gmail.com"><i class="fa fa-envelope"></i> francismburu75&#64;gmail.com</a>
+        <a href="tel:+254-798-375-876"><i class="fa fa-phone"></i> +254 798 375 876</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ChorePro. All rights reserved.</p>
+    </div>
   </footer>
 </div>

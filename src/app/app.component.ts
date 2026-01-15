@@ -1,15 +1,26 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterModule
+    RouterModule,
+    CommonModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'chorepro';
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
 }

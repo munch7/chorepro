@@ -1,1 +1,107 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700&display=swap');
+
+:root {
+  /* Colors */
+  --primary: #ff7f50; /* Coral */
+  --primary-dark: #d96b4d;
+  --secondary: #007BFF; /* Blue */
+  --secondary-dark: #0056b3;
+  --accent: #ff9c73;
+  --bg-main: #f8f9fa;
+  --bg-dark: #1a1a1a;
+  --text-main: #333333;
+  --text-light: #ffffff;
+  --text-muted: #6c757d;
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-blur: blur(10px);
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Borders */
+  --radius-sm: 8px;
+  --radius-md: 15px;
+  --radius-lg: 25px;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.15);
+  
+  /* Transition */
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, .outfit-font {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Global Button Styles */
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  border: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Glass Utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+}
+
+/* Container Style */
+.main-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}

@@ -1,55 +1,78 @@
-<div class="container">
-    <form [formGroup]="yourFormGroup" (ngSubmit)="onSubmit()">
-      <h1>Service Provider Form</h1>
-      <div>
-        <label for="name">Name</label>
-        <input id="name" formControlName="name" />
-        <div *ngIf="yourFormGroup.get('name')?.invalid && (yourFormGroup.get('name')?.dirty || yourFormGroup.get('name')?.touched)">
-          <div *ngIf="yourFormGroup.get('name')?.errors?.['required']">Name is required.</div>
+<section class="page-header bg-accent">
+  <div class="main-wrapper header-content text-center">
+    <h1 class="outfit-font">Join as a Provider</h1>
+    <p class="lead-text">Turn your skills into earnings. Sign up today and start receiving tasks.</p>
+  </div>
+</section>
+
+<section class="signup-section main-wrapper">
+  <div class="signup-container glass">
+    <form [formGroup]="yourFormGroup" (ngSubmit)="onSubmit()" class="modern-form">
+      <h2 class="outfit-font">Provider Registration</h2>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input id="name" formControlName="name" type="text" placeholder="John Doe">
+          <div class="error-msg"
+            *ngIf="yourFormGroup.get('name')?.invalid && (yourFormGroup.get('name')?.dirty || yourFormGroup.get('name')?.touched)">
+            <small *ngIf="yourFormGroup.get('name')?.errors?.['required']">Name is required.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="contact">Phone Number</label>
+          <input id="contact" formControlName="contact" type="tel" placeholder="07XX XXX XXX">
+          <div class="error-msg"
+            *ngIf="yourFormGroup.get('contact')?.invalid && (yourFormGroup.get('contact')?.dirty || yourFormGroup.get('contact')?.touched)">
+            <small *ngIf="yourFormGroup.get('contact')?.errors?.['required']">Contact is required.</small>
+            <small *ngIf="yourFormGroup.get('contact')?.errors?.['invalidContact']">Must start with 07 and be 10
+              digits.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Your Location</label>
+          <input id="location" formControlName="location" type="text" placeholder="e.g. Westlands, Nairobi">
+          <div class="error-msg"
+            *ngIf="yourFormGroup.get('location')?.invalid && (yourFormGroup.get('location')?.dirty || yourFormGroup.get('location')?.touched)">
+            <small *ngIf="yourFormGroup.get('location')?.errors?.['required']">Location is required.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="skill">Primary Skillset</label>
+          <div class="select-wrapper">
+            <select id="skill" formControlName="skill">
+              <option value="">Select a skill</option>
+              <option *ngFor="let skill of skills" [value]="skill.name">{{ skill.name }}</option>
+            </select>
+          </div>
+          <div class="error-msg"
+            *ngIf="yourFormGroup.get('skill')?.invalid && (yourFormGroup.get('skill')?.dirty || yourFormGroup.get('skill')?.touched)">
+            <small *ngIf="yourFormGroup.get('skill')?.errors?.['required']">Skill is required.</small>
+          </div>
         </div>
       </div>
-  
-      <div>
-        <label for="contact">Contact</label>
-        <input id="contact" formControlName="contact" />
-        <div *ngIf="yourFormGroup.get('contact')?.invalid && (yourFormGroup.get('contact')?.dirty || yourFormGroup.get('contact')?.touched)">
-          <div *ngIf="yourFormGroup.get('contact')?.errors?.['required']">Contact is required.</div>
-          <div *ngIf="yourFormGroup.get('contact')?.errors?.['invalidContact']">Contact must start with 07 and be 10 digits long.</div>
+
+      <div class="form-group full-width">
+        <label for="description">Professional Bio / Experience</label>
+        <textarea id="description" formControlName="description" rows="4"
+          placeholder="Tell clients why they should hire you..."></textarea>
+        <div class="error-msg"
+          *ngIf="yourFormGroup.get('description')?.invalid && (yourFormGroup.get('description')?.dirty || yourFormGroup.get('description')?.touched)">
+          <small *ngIf="yourFormGroup.get('description')?.errors?.['required']">Description is required.</small>
         </div>
       </div>
-  
-      <div>
-        <label for="location">Location</label>
-        <input id="location" formControlName="location" />
-        <div *ngIf="yourFormGroup.get('location')?.invalid && (yourFormGroup.get('location')?.dirty || yourFormGroup.get('location')?.touched)">
-          <div *ngIf="yourFormGroup.get('location')?.errors?.['required']">Location is required.</div>
-        </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="yourFormGroup.invalid">Register
+          Now</button>
       </div>
-  
-      <div>
-        <label for="skill">Skill</label>
-        <select id="skill" formControlName="skill">
-          <option value="">Select a skill</option>
-          <option *ngFor="let skill of skills" [value]="skill.name">{{ skill.name }}</option>
-        </select>
-        <div *ngIf="yourFormGroup.get('skill')?.invalid && (yourFormGroup.get('skill')?.dirty || yourFormGroup.get('skill')?.touched)">
-          <div *ngIf="yourFormGroup.get('skill')?.errors?.['required']">Skill is required.</div>
-        </div>
-      </div>
-  
-      <div>
-        <label for="description">Description</label>
-        <textarea id="description" formControlName="description"></textarea>
-        <div *ngIf="yourFormGroup.get('description')?.invalid && (yourFormGroup.get('description')?.dirty || yourFormGroup.get('description')?.touched)">
-          <div *ngIf="yourFormGroup.get('description')?.errors?.['required']">Description is required.</div>
-        </div>
-      </div>
-  
-      <button type="submit" [disabled]="yourFormGroup.invalid">Submit</button>
-  
-      <div *ngIf="responseMessage" class="response-message">
-        {{ responseMessage }}
+
+      <div *ngIf="responseMessage" class="response-message success">
+        <i class="fa fa-info-circle"></i> {{ responseMessage }}
       </div>
     </form>
   </div>
-  
+</section>
