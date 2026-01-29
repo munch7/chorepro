@@ -1,7 +1,9 @@
-<section class="page-header bg-secondary">
+<section class="hero-header bg-secondary">
   <div class="main-wrapper header-content text-center">
     <h1 class="outfit-font">Professional Services</h1>
-    <p class="lead-text">Discover our range of expert solutions designed to make your life easier.</p>
+    <p class="lead-text">
+      Discover our range of expert solutions designed to make your life easier.
+    </p>
   </div>
 </section>
 
@@ -22,7 +24,9 @@
     </div>
   </div>
   <div class="services-cta text-center">
-    <button class="btn btn-primary btn-lg" routerLink="/book">Book Service Now</button>
+    <button class="btn btn-primary btn-lg" routerLink="/book">
+      Book Service Now
+    </button>
   </div>
 </section>
 
@@ -40,14 +44,22 @@
           <select id="skill-dropdown" (change)="onSkillChange($event)">
             <option>- select -</option>
             <option value="">All Categories</option>
-            <option *ngFor="let skill of skills" [value]="skill.name">{{ skill.name }}</option>
+            <option *ngFor="let skill of skills" [value]="skill.name">
+              {{ skill.name }}
+            </option>
           </select>
         </div>
       </div>
     </div>
 
     <div class="results-area">
-      <div class="providers-grid" *ngIf="filteredPosts.length > 0 || selectedSkill === '- select -'; else noData">
+      <div
+        class="providers-grid"
+        *ngIf="
+          filteredPosts.length > 0 || selectedSkill === '- select -';
+          else noData
+        "
+      >
         <div class="provider-card" *ngFor="let post of filteredPosts">
           <div class="provider-badge">{{ post.skill }}</div>
           <h3>{{ post.name }}</h3>
@@ -55,14 +67,19 @@
             <span><i class="fa fa-map-marker"></i> {{ post.location }}</span>
           </div>
           <p>{{ post.description }}</p>
-          <button class="btn btn-secondary btn-sm" routerLink="/book">Book Now</button>
+          <button class="btn btn-secondary btn-sm" routerLink="/book">
+            Book Now
+          </button>
         </div>
       </div>
 
       <ng-template #noData>
         <div class="no-results text-center">
           <div class="no-results-icon"><i class="fa fa-search"></i></div>
-          <p>No service providers found for this category. Please try another selection.</p>
+          <p>
+            No service providers found for this category. Please try another
+            selection.
+          </p>
         </div>
       </ng-template>
     </div>
@@ -70,27 +87,38 @@
 </section>
 
 <section class="faq-section main-wrapper">
-  <h2 class="section-title outfit-font text-center">Frequently Asked Questions</h2>
+  <h2 class="section-title outfit-font text-center">
+    Frequently Asked Questions
+  </h2>
   <div class="faq-container">
     <details class="faq-item">
       <summary>What is included in the cleaning service?</summary>
       <div class="faq-content">
-        <p>Our cleaning service includes dusting, vacuuming, mopping, and deep cleaning of bathrooms and kitchens. We
-          tailor each visit to your specific needs.</p>
+        <p>
+          Our cleaning service includes dusting, vacuuming, mopping, and deep
+          cleaning of bathrooms and kitchens. We tailor each visit to your
+          specific needs.
+        </p>
       </div>
     </details>
     <details class="faq-item">
       <summary>Do you provide same-day service?</summary>
       <div class="faq-content">
-        <p>Yes, same-day service is available for select urgent tasks like plumbing or locksmith services. Contact us as
-          early as possible for the best availability.</p>
+        <p>
+          Yes, same-day service is available for select urgent tasks like
+          plumbing or locksmith services. Contact us as early as possible for
+          the best availability.
+        </p>
       </div>
     </details>
     <details class="faq-item">
       <summary>How are your providers verified?</summary>
       <div class="faq-content">
-        <p>Every provider on ChorePro undergoes a rigorous background check, skill verification, and interview process
-          to ensure the highest standards of safety and quality.</p>
+        <p>
+          Every provider on ChorePro undergoes a rigorous background check,
+          skill verification, and interview process to ensure the highest
+          standards of safety and quality.
+        </p>
       </div>
     </details>
   </div>

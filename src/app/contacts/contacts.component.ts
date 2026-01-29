@@ -4,12 +4,8 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-contacts',
   standalone: true,
-  imports: [
-    RouterLink
-  ],
+  imports: [RouterLink],
   templateUrl: './contacts.component.html',
-  styleUrl: './contacts.component.css'
+  styleUrl: './contacts.component.css',
 })
-export class ContactsComponent {
-
-}
+export class ContactsComponent {}

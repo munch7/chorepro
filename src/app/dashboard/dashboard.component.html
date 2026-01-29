@@ -1,0 +1,177 @@
+<section class="dashboard-hero">
+  <div class="main-wrapper">
+    <div class="header-flex">
+      <div class="header-text" *ngIf="provider">
+        <span class="welcome-label">Professional Portal</span>
+        <h1 class="outfit-font">Welcome, {{ provider.name }}</h1>
+        <p class="status-indicator">
+          <span
+            class="pulse-dot"
+            [class]="provider.availability?.toLowerCase()"
+          ></span>
+          Current Status: <strong>{{ provider.availability }}</strong>
+        </p>
+      </div>
+      <div class="header-text" *ngIf="!provider">
+        <h1 class="outfit-font">Provider Portal</h1>
+        <p>Authorized personnel only.</p>
+      </div>
+      <div class="quick-stats" *ngIf="provider">
+        <div class="mini-stat glass">
+          <span class="stat-value">{{ requests.length }}</span>
+          <span class="stat-label">Pending Chores</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="dashboard-layout main-wrapper">
+  <div *ngIf="provider" class="layout-grid">
+    <!-- Sidebar Navigation -->
+    <aside class="dashboard-sidebar glass">
+      <div class="profile-card">
+        <div class="avatar-container">
+          <div class="avatar-inner">
+            <i class="fa fa-user-circle"></i>
+          </div>
+        </div>
+        <div class="profile-info">
+          <h3 class="outfit-font">{{ provider.name }}</h3>
+          <span class="specialty-tag">{{ provider.skill }}</span>
+        </div>
+      </div>
+
+      <nav class="dashboard-nav">
+        <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
+          <i class="fa fa-tasks"></i>
+          <span>Active Requests</span>
+          <span class="count-pill" *ngIf="requests.length > 0">{{
+            requests.length
+          }}</span>
+        </a>
+        <a routerLink="/settings" class="nav-link">
+          <i class="fa fa-sliders"></i>
+          <span>Settings</span>
+        </a>
+        <div class="nav-divider"></div>
+        <button (click)="logout()" class="nav-link logout-btn">
+          <i class="fa fa-power-off"></i>
+          <span>Sign Out</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-main">
+      <div class="section-header">
+        <h2 class="outfit-font">Available Chores</h2>
+        <div class="filter-actions">
+          <button class="btn btn-icon" (click)="loadRequests()">
+            <i class="fa fa-refresh"></i>
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="requests.length === 0" class="empty-dashboard glass">
+        <div class="empty-icon">
+          <i class="fa fa-clipboard"></i>
+        </div>
+        <h3>Everything's Clear</h3>
+        <p>
+          No requests for {{ provider.skill }} services at the moment. Check
+          back soon!
+        </p>
+      </div>
+
+      <div class="chore-grid">
+        <div
+          *ngFor="let req of requests"
+          class="chore-card glass-premium"
+          [class.completed]="
+            req.services?.[provider.skill]?.status === 'completed'
+          "
+        >
+          <div class="chore-header">
+            <div class="chore-meta">
+              <span class="chore-id">#{{ req.id?.substring(0, 6) }}</span>
+              <span class="chore-date"
+                ><i class="fa fa-clock-o"></i>
+                {{ req.date | date: "MMM d, h:mm a" }}</span
+              >
+            </div>
+            <div class="chore-badges">
+              <span
+                class="status-badge"
+                [class]="req.services?.[provider.skill]?.status || 'pending'"
+              >
+                {{
+                  req.services?.[provider.skill]?.status || "pending"
+                    | titlecase
+                }}
+              </span>
+              <div class="chore-skill-badge">{{ provider.skill }}</div>
+            </div>
+          </div>
+
+          <div class="chore-body">
+            <h3 class="outfit-font">{{ req.name }}</h3>
+            <div class="info-row">
+              <i class="fa fa-map-marker"></i>
+              <span>{{ req.location }}</span>
+            </div>
+            <p class="chore-description">{{ req.description }}</p>
+          </div>
+
+          <div class="chore-actions">
+            <a [href]="'tel:' + req.contact" class="btn btn-secondary btn-sm">
+              <i class="fa fa-phone"></i> Contact
+            </a>
+
+            <!-- Pending -> In Progress -->
+            <button
+              *ngIf="
+                !req.services?.[provider.skill]?.status ||
+                req.services?.[provider.skill]?.status === 'pending'
+              "
+              class="btn btn-primary btn-sm"
+              (click)="updateStatus(req, 'in-progress')"
+            >
+              Accept Chore <i class="fa fa-arrow-right"></i>
+            </button>
+
+            <!-- In Progress -> Complete -->
+            <button
+              *ngIf="req.services?.[provider.skill]?.status === 'in-progress'"
+              class="btn btn-success btn-sm"
+              (click)="updateStatus(req, 'completed')"
+            >
+              Mark Complete <i class="fa fa-check"></i>
+            </button>
+
+            <!-- Completed -->
+            <button
+              *ngIf="req.services?.[provider.skill]?.status === 'completed'"
+              class="btn btn-disabled btn-sm"
+              disabled
+            >
+              Finished <i class="fa fa-star"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Unauthorized Gate -->
+  <div *ngIf="!provider" class="gate-card text-center glass-premium">
+    <div class="lock-icon"><i class="fa fa-lock"></i></div>
+    <h2 class="outfit-font">Access Restricted</h2>
+    <p>
+      You must be signed in as a verified provider to access this dashboard.
+    </p>
+    <a routerLink="/login" class="btn btn-primary btn-lg mt-4"
+      >Safe Passage to Login</a
+    >
+  </div>
+</div>
