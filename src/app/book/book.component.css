@@ -1,15 +1,29 @@
-.page-header {
+/* Host-level background */
+:host {
+  display: block;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../../assets/20.PNG");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+}
+
+.hero-header {
   padding: 8rem 0 5rem;
   color: white;
 }
 
 .bg-primary {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: transparent;
 }
 
 .header-content h1 {
   font-size: 3.5rem;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .lead-text {
@@ -17,6 +31,7 @@
   opacity: 0.9;
   max-width: 700px;
   margin: 0 auto;
+  color: white;
 }
 
 .booking-section {
@@ -28,7 +43,10 @@
   margin: 0 auto;
   padding: 4rem;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--glass-border);
+  background: white;
+  /* Reverted to white */
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .modern-form h2 {
@@ -46,6 +64,7 @@
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--text-main);
+  /* Reverted to dark */
 }
 
 /* Skills Grid */
@@ -56,37 +75,44 @@
 }
 
 .skill-pill {
-  padding: 10px 20px;
-  background: white;
-  border: 1px solid #ddd;
+  padding: 12px 24px;
+  background: #f8f9fa;
+  border: 2px solid #eee;
   border-radius: 50px;
   cursor: pointer;
-  transition: var(--transition);
-  font-size: 0.9rem;
-  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.95rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  color: var(--text-main);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .skill-pill i {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
+  transition: inherit;
 }
 
 .skill-pill:hover {
   border-color: var(--primary);
   color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.15);
 }
 
 .skill-pill.selected {
-  background: var(--primary);
-  border-color: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-color: transparent;
   color: white;
+  box-shadow: 0 8px 16px rgba(255, 107, 107, 0.3);
 }
 
 .skill-pill.selected i {
   color: white;
+  transform: scale(1.2);
 }
 
 /* Individual Form Groups */
@@ -111,6 +137,7 @@
   font-weight: 600;
   font-size: 0.9rem;
   color: var(--text-main);
+  /* Reverted to dark */
 }
 
 .form-group input,
@@ -122,6 +149,7 @@
   font-size: 1rem;
   transition: var(--transition);
   background: white;
+  color: var(--text-main);
 }
 
 .form-group input:focus,
@@ -156,20 +184,44 @@
 }
 
 @media (max-width: 768px) {
+  .hero-header {
+    padding: 6rem 0 3rem;
+  }
+
   .header-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
+  }
+
+  .lead-text {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .booking-section {
+    padding: 3rem 0;
   }
 
   .booking-container {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem 1.25rem;
+    margin: 0 1rem;
+  }
+
+  .modern-form h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .full-width {
     grid-column: span 1;
+  }
+
+  .skill-pill {
+    padding: 10px 18px;
+    font-size: 0.9rem;
   }
 }

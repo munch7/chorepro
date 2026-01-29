@@ -1,28 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Skill } from '../shared/skills.model';
 import { Skills } from '../shared/skills.service';
+import { Firestore, collection, getDocs } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, RouterModule, HttpClientModule ],
+  imports: [CommonModule, RouterModule],
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.css'],
-  providers: [Skills]
+  providers: [Skills],
 })
 export class ServicesComponent implements OnInit {
   selectedSkill: string = '- select -';
   filteredPosts: any[] = [];
   posts: any[] = [];
   skills: Skill[] = [];
+  private firestore: Firestore = inject(Firestore);
 
   constructor(
-    private http: HttpClient,
     private route: ActivatedRoute,
-    private sservice: Skills
+    private sservice: Skills,
   ) {
     this.skills = this.sservice.getSkills();
   }
@@ -31,17 +31,24 @@ export class ServicesComponent implements OnInit {
     this.getFormData();
   }
 
-  getFormData() {
-    this.http.get('https://monkey-ec249-default-rtdb.europe-west1.firebasedatabase.app/form-data.json')
-      .subscribe(
-        (data: any) => {
-          console.log('Form data retrieved successfully:', data);
-          this.posts = data ? Object.values(data) : []; // Ensure data is not null
-          this.shufflePosts();
-          this.filterBySkill(); // Apply filter after data is loaded
-        },
-        error => console.error('Error retrieving form data:', error)
-      );
+  async getFormData() {
+    console.log('ServicesComponent: Fetching providers from Firestore...');
+    try {
+      const providersRef = collection(this.firestore, 'providers');
+      const snapshot = await getDocs(providersRef);
+
+      console.log(`ServicesComponent: Found ${snapshot.size} providers.`);
+
+      this.posts = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+
+      this.shufflePosts();
+      this.filterBySkill();
+    } catch (error) {
+      console.error('ServicesComponent: Error fetching providers:', error);
+    }
   }
 
   shufflePosts() {
@@ -49,29 +56,30 @@ export class ServicesComponent implements OnInit {
       const j = Math.floor(Math.random() * (i + 1));
       [this.posts[i], this.posts[j]] = [this.posts[j], this.posts[i]];
     }
-    console.log('Shuffled Posts:', this.posts); // Debugging log
+    console.log('Shuffled Posts:', this.posts);
   }
 
-
   filterBySkill() {
+    console.log(
+      `ServicesComponent: Filtering providers by skill: ${this.selectedSkill}`,
+    );
     if (this.selectedSkill === '' || this.selectedSkill === 'All Services') {
-      // If 'All Services' is selected, show all posts
       this.filteredPosts = this.posts;
     } else if (this.selectedSkill && this.selectedSkill !== '- select -') {
-      // Otherwise, filter by the selected skill
-      this.filteredPosts = this.posts.filter(post => post && post.Skills === this.selectedSkill);
+      this.filteredPosts = this.posts.filter(
+        (post) => post && post.skill === this.selectedSkill,
+      );
     } else {
-      // Default case (e.g., '- select -'), show no posts
-      console.log('error');
       this.filteredPosts = [];
     }
-    console.log('Filtered Posts:', this.filteredPosts); // Debugging log
-  }    
+    console.log(
+      `ServicesComponent: Filter complete. Found ${this.filteredPosts.length} posts.`,
+    );
+  }
 
   onSkillChange(event: Event) {
     const target = event.target as HTMLSelectElement;
     this.selectedSkill = target.value;
-    this.filterBySkill(); // Apply the filter logic whenever the dropdown changes
+    this.filterBySkill();
   }
-  
 }

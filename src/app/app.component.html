@@ -1,25 +1,79 @@
 <div class="app-container">
-  <header class="main-header glass sticky" [class.menu-open]="isMenuOpen">
+  <header
+    class="main-header glass sticky"
+    [class.menu-open]="isMenuOpen"
+    [class.nav-hidden]="isNavHidden"
+    [class.at-top]="isAtTop"
+  >
     <div class="nav-content main-wrapper">
       <div class="logo" routerLink="/home" (click)="closeMenu()">
-        <img src="../assets/3.png" alt="ChorePro Logo">
+        <img src="../assets/3.png" alt="ChorePro Logo" />
         <span class="brand-name outfit-font">ChorePro</span>
       </div>
       <nav [class.open]="isMenuOpen">
-        <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()">Home</a>
-        <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
-        <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Services</a>
-        <a routerLink="/contacts" routerLinkActive="active" (click)="closeMenu()">Contacts</a>
-        <a routerLink="/book" routerLinkActive="active" (click)="closeMenu()">Booking</a>
-        <a routerLink="/signup" routerLinkActive="active" class="signup-link" (click)="closeMenu()">Signup</a>
+        <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()"
+          >Home</a
+        >
+        <a
+          *ngIf="lastBookingId"
+          routerLink="/track"
+          class="track-link"
+          (click)="closeMenu()"
+        >
+          <i class="fa fa-map-marker"></i> Track Bookings
+        </a>
+        <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()"
+          >About</a
+        >
+        <a
+          routerLink="/services"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+          >Services</a
+        >
+        <a
+          routerLink="/contacts"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+          >Contacts</a
+        >
+        <a routerLink="/book" routerLinkActive="active" (click)="closeMenu()"
+          >Booking</a
+        >
+        <a
+          *ngIf="provider"
+          routerLink="/dashboard"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+          >Dashboard</a
+        >
+        <a
+          *ngIf="!provider"
+          routerLink="/login"
+          routerLinkActive="active"
+          class="login-link"
+          (click)="closeMenu()"
+          >Login</a
+        >
+        <a
+          routerLink="/signup"
+          routerLinkActive="active"
+          class="signup-link"
+          (click)="closeMenu()"
+          >Signup</a
+        >
       </nav>
       <div class="mobile-menu-toggle" (click)="toggleMenu()">
-        <i class="fa" [class.fa-bars]="!isMenuOpen" [class.fa-times]="isMenuOpen"></i>
+        <i
+          class="fa"
+          [class.fa-bars]="!isMenuOpen"
+          [class.fa-times]="isMenuOpen"
+        ></i>
       </div>
     </div>
   </header>
 
-  <main class="content">
+  <main class="content fade-in-up">
     <router-outlet></router-outlet>
   </main>
 
@@ -31,8 +85,12 @@
       </div>
       <div class="footer-section contact-info">
         <h3>Get In Touch</h3>
-        <a href="mailto:francismburu75&#64;gmail.com"><i class="fa fa-envelope"></i> francismburu75&#64;gmail.com</a>
-        <a href="tel:+254-798-375-876"><i class="fa fa-phone"></i> +254 798 375 876</a>
+        <a href="mailto:francismburu75&#64;gmail.com"
+          ><i class="fa fa-envelope"></i> francismburu75&#64;gmail.com</a
+        >
+        <a href="tel:+254-798-375-876"
+          ><i class="fa fa-phone"></i> +254 798 375 876</a
+        >
       </div>
     </div>
     <div class="footer-bottom">

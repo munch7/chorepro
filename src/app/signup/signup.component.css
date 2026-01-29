@@ -1,142 +1,178 @@
-.page-header {
-    padding: 8rem 0 5rem;
-    color: white;
+/* Host-level background */
+:host {
+  display: block;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../../assets/20.PNG");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+}
+
+.hero-header {
+  padding: 8rem 0 5rem;
+  color: white;
 }
 
 .bg-accent {
-    background: linear-gradient(135deg, var(--accent), var(--primary));
+  background: transparent;
+  /* Removed solid bg */
 }
 
 .header-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: white;
 }
 
 .lead-text {
-    font-size: 1.25rem;
-    opacity: 0.9;
-    max-width: 700px;
-    margin: 0 auto;
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+  color: white;
 }
 
 .signup-section {
-    padding: 6rem 0;
+  padding: 6rem 0;
 }
 
 .signup-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 4rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--glass-border);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem;
+  border-radius: var(--radius-lg);
+  background: white;
+  /* Reverted to white */
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .modern-form h2 {
-    margin-bottom: 3rem;
-    font-size: 2rem;
+  margin-bottom: 3rem;
+  font-size: 2rem;
 }
 
 .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .form-group {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .full-width {
-    grid-column: span 2;
+  grid-column: span 2;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--text-main);
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  /* Reverted to dark */
 }
 
 .form-group input,
 .form-group textarea,
 select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: var(--radius-sm);
-    font-size: 1rem;
-    transition: var(--transition);
-    background: white;
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  transition: var(--transition);
+  background: white;
+  /* Reverted to white */
+  color: var(--text-main);
+  /* Reverted to dark */
 }
 
 .select-wrapper {
-    position: relative;
+  position: relative;
 }
 
 .select-wrapper::after {
-    content: '';
-    font-family: 'FontAwesome';
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: var(--text-muted);
+  content: "";
+  font-family: "FontAwesome";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-muted);
 }
 
 select {
-    appearance: none;
+  appearance: none;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 select:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
 .error-msg {
-    color: #dc3545;
-    margin-top: 0.5rem;
+  color: #dc3545;
+  margin-top: 0.5rem;
 }
 
 .form-actions {
-    margin-top: 3rem;
+  margin-top: 3rem;
 }
 
 .response-message {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    border-radius: var(--radius-sm);
-    background: #f8f9fa;
-    text-align: center;
-    font-weight: 600;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+  background: #f8f9fa;
+  text-align: center;
+  font-weight: 600;
 }
 
 .response-message.success {
-    background: rgba(40, 167, 69, 0.1);
-    color: #28a745;
-    border: 1px solid rgba(40, 167, 69, 0.2);
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.2);
 }
 
 @media (max-width: 768px) {
-    .header-content h1 {
-        font-size: 2.5rem;
-    }
+  .hero-header {
+    padding: 6rem 0 3rem;
+  }
 
-    .signup-container {
-        padding: 2.5rem 1.5rem;
-    }
+  .header-content h1 {
+    font-size: 2.5rem;
+  }
 
-    .form-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+  .lead-text {
+    font-size: 1.15rem;
+  }
 
-    .full-width {
-        grid-column: span 1;
-    }
+  .signup-section {
+    padding: 3rem 0;
+  }
+
+  .signup-container {
+    padding: 2.5rem 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .full-width {
+    grid-column: span 1;
+  }
 }

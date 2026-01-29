@@ -1,41 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap");
 
 :root {
-  /* Colors */
-  --primary: #ff7f50; /* Coral */
-  --primary-dark: #d96b4d;
-  --secondary: #007BFF; /* Blue */
-  --secondary-dark: #0056b3;
-  --accent: #ff9c73;
-  --bg-main: #f8f9fa;
-  --bg-dark: #1a1a1a;
-  --text-main: #333333;
+  /* Colors - Premium Palette */
+  --primary: #ff6b6b;
+  /* Softer, more modern Coral */
+  --primary-dark: #e05555;
+  --secondary: #4a90e2;
+  /* Modern Blue */
+  --secondary-dark: #357abd;
+  --accent: #ffb88c;
+  /* Soft orange/peach accent */
+
+  /* Backgrounds */
+  --bg-main: #f4f7f6;
+  /* Very light cool gray */
+  --bg-card: #ffffff;
+  --bg-dark: #1e2125;
+
+  /* Typography */
+  --text-main: #2d3436;
   --text-light: #ffffff;
-  --text-muted: #6c757d;
-  
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-blur: blur(10px);
-  
+  --text-muted: #636e72;
+
+  /* Glassmorphism - Enhanced */
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-blur: blur(16px);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 1.5rem;
   --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-  
+  --spacing-xl: 4rem;
+
   /* Borders */
   --radius-sm: 8px;
-  --radius-md: 15px;
-  --radius-lg: 25px;
-  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.15);
-  
+  --radius-md: 16px;
+  --radius-lg: 32px;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.12);
+
   /* Transition */
-  --transition: all 0.3s ease;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 * {
@@ -44,51 +55,89 @@
   padding: 0;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  color: var(--text-main);
-  background-color: var(--bg-main);
-  line-height: 1.6;
+/* Custom Scrollbar - Premium Look */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-h1, h2, h3, h4, .outfit-font {
-  font-family: 'Outfit', sans-serif;
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: 3px solid var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Custom Selection */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  line-height: 1.7;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+.outfit-font {
+  font-family: "Outfit", sans-serif;
 }
 
 /* Global Button Styles */
 .btn {
-  display: inline-block;
-  padding: 10px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
   font-size: 1rem;
-  font-weight: 500;
-  border-radius: var(--radius-sm);
+  font-weight: 600;
+  border-radius: 50px;
+  /* Pill shape */
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
   border: none;
   text-align: center;
+  gap: 8px;
 }
 
 .btn-primary {
-  background-color: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: var(--text-light);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
 }
 
 .btn-secondary {
-  background-color: var(--secondary);
-  color: var(--text-light);
+  background: var(--bg-card);
+  color: var(--secondary);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
-  background-color: var(--secondary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  background: var(--secondary);
+  color: var(--text-light);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
 }
 
 /* Glass Utility */
@@ -97,11 +146,80 @@ h1, h2, h3, h4, .outfit-font {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 /* Container Style */
 .main-wrapper {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
+  width: 100%;
+}
+
+/* Password Visibility Toggle */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 3rem !important;
+  /* Make room for icon */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: var(--transition);
+  font-size: 1.1rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.toggle-password:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-xl: 2.5rem;
+    --spacing-lg: 1.5rem;
+  }
+
+  html {
+    font-size: 15px;
+  }
+
+  .main-wrapper {
+    padding: 0 1.25rem;
+  }
 }

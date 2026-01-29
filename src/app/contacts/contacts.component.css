@@ -9,7 +9,7 @@
 
 section {
   padding: 40px 20px 10px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   text-align: center;
 }
 
@@ -42,7 +42,6 @@ li {
 }
 
 @media (max-width: 560px) {
-
   h1,
   h2 {
     font-size: 1.5rem;
@@ -54,13 +53,26 @@ li {
   }
 }
 
-.page-header {
+/* Host-level background */
+:host {
+  display: block;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../../assets/20.PNG");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+}
+
+.hero-header {
   padding: 8rem 0 5rem;
   color: white;
 }
 
 .bg-accent {
-  background: linear-gradient(135deg, var(--accent), var(--primary));
+  background: transparent;
 }
 
 .header-content h1 {
@@ -84,6 +96,7 @@ li {
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
   align-items: start;
+  padding: 20px;
 }
 
 .contact-info h2 {
@@ -93,7 +106,7 @@ li {
 }
 
 .section-desc {
-  color: var(--text-muted);
+  color: white;
   margin-bottom: 3rem;
   text-align: left;
 }
@@ -114,6 +127,7 @@ li {
   width: 50px;
   height: 50px;
   background: var(--bg-main);
+  /* Reverted */
   color: var(--primary);
   display: flex;
   align-items: center;
@@ -129,7 +143,7 @@ li {
 
 .info-text p,
 .info-text a {
-  color: var(--text-muted);
+  color: white;
   text-decoration: none;
   font-size: 0.95rem;
   transition: var(--transition);
@@ -143,7 +157,10 @@ li {
 .contact-form-container {
   padding: 3rem;
   border-radius: var(--radius-md);
-  border: 1px solid var(--glass-border);
+  background: white;
+  /* Reverted to white */
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .contact-form-container h2 {
@@ -160,6 +177,8 @@ li {
   margin-bottom: 0.5rem;
   font-weight: 600;
   font-size: 0.9rem;
+  color: var(--text-main);
+  /* Reverted to dark */
 }
 
 .form-group input,
@@ -170,6 +189,8 @@ li {
   border-radius: var(--radius-sm);
   font-size: 1rem;
   transition: var(--transition);
+  background: white;
+  color: var(--text-main);
 }
 
 .form-group input:focus,

@@ -1,0 +1,150 @@
+<section class="status-hero">
+  <div class="main-wrapper">
+    <div class="hub-layout">
+      <!-- Side Navigation / Recents List -->
+      <aside
+        class="recents-sidebar glass-premium"
+        *ngIf="recentBookings.length > 0"
+      >
+        <h3 class="outfit-font">Recent Orders</h3>
+        <div class="recents-list">
+          <div
+            *ngFor="let item of recentBookings"
+            class="recent-item"
+            [routerLink]="['/track', item.id]"
+            routerLinkActive="active"
+          >
+            <div class="item-info">
+              <span class="id"
+                >#{{ item.id.substring(0, 8).toUpperCase() }}</span
+              >
+              <span class="date">{{ item.timestamp | date: "shortDate" }}</span>
+            </div>
+            <i class="fa fa-chevron-right"></i>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Status View -->
+      <div class="main-status-view">
+        <div
+          *ngIf="booking$ | async as booking; else noBooking"
+          class="status-container glass-premium"
+        >
+          <div class="status-header text-center">
+            <h1 class="outfit-font">Track Your Booking</h1>
+            <p class="booking-id">
+              ID: #{{ booking.id.substring(0, 8).toUpperCase() }}
+            </p>
+          </div>
+
+          <!-- Overall Status Banner -->
+          <div class="status-banner" [ngClass]="getOverallStatus(booking)">
+            <i
+              class="fa"
+              [ngClass]="getStatusIcon(getOverallStatus(booking))"
+            ></i>
+            <span
+              >Request Status: {{ getOverallStatus(booking) | titlecase }}</span
+            >
+          </div>
+
+          <div class="status-content">
+            <div class="info-card">
+              <h3 class="outfit-font mb-3">Booking Summary</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <label>Location</label>
+                  <p>{{ booking.location }}</p>
+                </div>
+                <div class="info-item">
+                  <label>Scheduled Date</label>
+                  <p>{{ booking.date | date: "mediumDate" }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="services-tracking">
+              <h3 class="outfit-font mb-4">Service Status</h3>
+              <div class="timeline">
+                <div
+                  *ngFor="let skill of booking.skills"
+                  class="timeline-item"
+                  [ngClass]="getServiceStatus(booking.services, skill)"
+                >
+                  <div class="timeline-icon">
+                    <i
+                      class="fa"
+                      [ngClass]="
+                        getStatusIcon(getServiceStatus(booking.services, skill))
+                      "
+                    ></i>
+                  </div>
+                  <div class="timeline-content">
+                    <div class="content-main">
+                      <h4>{{ skill }}</h4>
+                      <p class="status-text">
+                        {{
+                          getServiceStatus(booking.services, skill) | titlecase
+                        }}
+                      </p>
+                    </div>
+
+                    <!-- Provider Details -->
+                    <div
+                      *ngIf="booking.services?.[skill]?.providerName"
+                      class="provider-card fade-in"
+                    >
+                      <div class="provider-main">
+                        <div class="provider-avatar">
+                          {{ booking.services[skill].providerName.charAt(0) }}
+                        </div>
+                        <div class="provider-info">
+                          <p class="name">
+                            {{ booking.services[skill].providerName }}
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="provider-contact"
+                        *ngIf="booking.services[skill].providerContact"
+                      >
+                        <a
+                          [href]="
+                            'tel:' + booking.services[skill].providerContact
+                          "
+                          class="contact-btn"
+                        >
+                          <i class="fa fa-phone"></i>
+                          {{ booking.services[skill].providerContact }}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="status-footer text-center mt-5">
+            <p class="help-text">
+              Need to make changes? Call us at +254 798 375 876
+            </p>
+            <a routerLink="/" class="btn btn-secondary mt-3">Return Home</a>
+          </div>
+        </div>
+
+        <ng-template #noBooking>
+          <div class="empty-state text-center glass-premium">
+            <i class="fa fa-search fa-3x mb-4"></i>
+            <h2 class="outfit-font">No Active Booking Selected</h2>
+            <p>Select a booking from the list or create a new request.</p>
+            <a routerLink="/book" class="btn btn-primary mt-4"
+              >Book a Service</a
+            >
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>
